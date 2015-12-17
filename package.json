@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "react-native": "^0.16.0",
+    "react-native-android-snackbar": "0.0.2",
     "react-native-router-flux": "^1.0.9"
   }
 }

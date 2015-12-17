@@ -18,8 +18,8 @@ var {
 } = React;
 
 var Actions = require('react-native-router-flux').Actions;
-
 var ToolbarAndroid = require('ToolbarAndroid');
+var Snackbar = require('react-native-android-snackbar');
 
 var Home = React.createClass({
   render: function() {
@@ -55,7 +55,7 @@ var Home = React.createClass({
 
         <View style={styles.footer}>
           <TouchableHighlight
-            onPress={() => ToastAndroid.show('This is a toast with short duration', ToastAndroid.SHORT)}
+            onPress={this.showSnackBar}
             style={styles.button}>
               <Text style={styles.buttonText}>Show toast</Text>
           </TouchableHighlight>
@@ -66,10 +66,21 @@ var Home = React.createClass({
   },
 
   onActionSelected: function(position) {
-    if (position === 0) { // index of 'Settings'
-    ToastAndroid.show('SETTINGS', ToastAndroid.SHORT);
+      if (position === 0) { // index of 'Settings'
+      ToastAndroid.show('SETTINGS', ToastAndroid.SHORT);
+    }
+  },
+
+  showSnackBar: function() {
+    var opts = {
+      duration: Snackbar.SHORT,
+      actionLabel: 'ACTION',
+      actionColor: '#FFCA00',
+      actionCallback: () => ToastAndroid.show('Snackbar action invoked', ToastAndroid.SHORT)
+    }
+
+    Snackbar.show('Hello snackbar!' , opts);
   }
-}
 
 });
 
