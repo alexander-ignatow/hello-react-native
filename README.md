@@ -1,5 +1,7 @@
 # hello-react-native
 Several samples with react-native
+  * Navigation
+  * Snackbar
 
 #### Getting Started
 
